@@ -1,1 +1,2 @@
 # pisukisu-ts
+use yarn
