@@ -1,0 +1,125 @@
+@import "./variables.css";
+@import "./fonts.css";
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080808;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #505254;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
+
+::selection {
+  background-color: var(--pk-ui-colors-dark-default);
+  color: var(--pk-ui-colors-light-default);
+}
+
+*,
+*::before,
+*::after {
+  border: none;
+  outline: none;
+  list-style: none;
+  box-sizing: border-box;
+  border-collapse: inherit;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  scroll-behavior: smooth;
+  block-size: 100%;
+}
+
+body {
+  margin: 0; padding: 0;
+  background-color: var(--pk-ui-colors-dark-default);
+  color: var(--pk-ui-colors-light-default);
+  font: normal 500 16px/1.6667 Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+  Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+  'Segoe UI Symbol';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+}
+
+h1, h2, h3,
+h4, h5, h6 {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  line-height: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 2.6667vw;
+}
+
+h2 {
+  font-size: 2.14vw;
+}
+
+h3 {
+  font-size: 1.97vw;
+}
+
+h4 {
+  font-size: 1.78vw;
+}
+
+h5 {
+  font-size: 1.56vw;
+}
+
+h6 {
+  font-size: 1.34vw;
+}
+
+p {
+  margin: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+}
+
+button, input {
+  box-shadow: none;
+  outline: none;
+  margin: 0; padding: 0;
+  background-color: transparent;
+  font: inherit;
+}
+
+ul, ol, li {
+  list-style-type: none;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  padding-inline-start: 0;
+}
+
+textarea {
+  resize: none;
+}
