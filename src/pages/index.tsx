@@ -1,7 +1,12 @@
+import Container from "components/layout/Container";
+import Banner from "components/pages/home/Banner";
+
 const Index = () => {
   return (
-    <div>asd</div>
+    <Container>
+      <Banner />
+    </Container>
   );
-}
+};
 
 export default Index;

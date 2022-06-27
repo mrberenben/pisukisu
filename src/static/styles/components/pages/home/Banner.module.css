@@ -1,0 +1,41 @@
+.banner {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "first first second third"
+    "first first fourth fifth";
+  gap: 1rem;
+
+  inline-size: 100%;
+  padding-block: 2rem;
+}
+
+.anime_poster {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--pk-ui-colors-dark-200);
+  border-radius: var(--pk-ui-misc-radius-l);
+  inline-size: 100%;
+
+  aspect-ratio: 1/1;
+}
+
+.anime_poster_first {
+  grid-area: first;
+}
+.anime_poster_second {
+  grid-area: second;
+}
+.anime_poster_third {
+  grid-area: third;
+}
+.anime_poster_fourth {
+  grid-area: fourth;
+}
+.anime_poster_fifth {
+  grid-area: fifth;
+}

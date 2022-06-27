@@ -11,6 +11,7 @@ import { SearchIcon } from "utils/config/icons.config";
 import isActiveRoute from "utils/helpers/ActiveRoute";
 import useDebounce from "utils/hooks/useDebounce";
 import useIsFirstRender from "utils/hooks/useIsFirstRender";
+import Container from "components/layout/Container";
 
 const AppHeader = () => {
   const navigate = useNavigate();
@@ -31,32 +32,36 @@ const AppHeader = () => {
 
   return (
     <header className={styles.app_header}>
-      <div className={styles.app_logo}>
-        <img src={AppLogo} alt="Pisukisu" />
-      </div>
+      <Container>
+        <div className={styles.header_wrapper}>
+          <div className={styles.app_logo}>
+            <img src={AppLogo} alt="Pisukisu" />
+          </div>
 
-      <ul className={styles.app_navigation}>
-        {Navigation.map(nav => (
-          <li key={nav.id}>
-            <a
-              href={nav.path}
-              className={isActiveRoute(nav.path) ? styles.route_active : undefined}
-            >
-              {nav.name}
-            </a>
-          </li>
-        ))}
-      </ul>
+          <ul className={styles.app_navigation}>
+            {Navigation.map(nav => (
+              <li key={nav.id}>
+                <a
+                  href={nav.path}
+                  className={isActiveRoute(nav.path) ? styles.route_active : undefined}
+                >
+                  {nav.name}
+                </a>
+              </li>
+            ))}
+          </ul>
 
-      <div className={styles.app_search}>
-        <input
-          type="text"
-          placeholder="Search anime, genre, actor"
-          defaultValue={searchQuery}
-          onChange={e => setSearchQuery(e.target.value)}
-        />
-        <SearchIcon />
-      </div>
+          <div className={styles.app_search}>
+            <input
+              type="text"
+              placeholder="Search anime, genre, actor"
+              defaultValue={searchQuery}
+              onChange={e => setSearchQuery(e.target.value)}
+            />
+            <SearchIcon />
+          </div>
+        </div>
+      </Container>
     </header>
   );
 };
