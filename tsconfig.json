@@ -20,13 +20,15 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "paths": {
-      "~/*": ["/*"],
-      "@components/*": ["src/components/*"],
-      "@styles/*": ["src/styles/*"],
-    },
   },
   "include": [
-    "src"
+    "src",
+    "./**/*.ts",
+    "./**/*.tsx",
+    "./**/*.css",
+  ],
+  "exclude": [
+    "node_modules",
+    "build"
   ]
 }

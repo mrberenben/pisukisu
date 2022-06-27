@@ -1,5 +1,5 @@
 import styles from "static/styles/pages/index.module.css";
-import Router from "Router";
+import Router from "./Router";
 
 function App() {
   return (

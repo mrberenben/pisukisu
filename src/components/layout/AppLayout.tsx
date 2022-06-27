@@ -1,4 +1,3 @@
-import { ReactNode } from "react";
 import { Outlet } from "react-router-dom";
 import styles from "static/styles/components/layout/AppLayout.module.css";
 

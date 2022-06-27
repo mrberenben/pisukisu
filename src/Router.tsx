@@ -5,7 +5,7 @@ import {
 } from "react-router-dom";
 
 // pages
-import Index from "pages";
+import Index from "pages/index";
 
 // components
 import AppLayout from "components/layout/AppLayout";
