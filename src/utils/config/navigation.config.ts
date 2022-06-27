@@ -1,7 +1,7 @@
 const Navigation = [
   {
     id: 0,
-    name: "Discover",
+    name: "Browse",
     path: "/"
   },
   {
@@ -13,7 +13,7 @@ const Navigation = [
     id: 2,
     name: "Discord",
     path: "/discord"
-  },
-]
+  }
+];
 
 export default Navigation;
