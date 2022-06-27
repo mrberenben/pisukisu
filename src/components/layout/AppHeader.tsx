@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "static/styles/components/layout/AppHeader.module.css";
 
 // config
@@ -9,12 +10,22 @@ import { SearchIcon } from "utils/config/icons.config";
 // hooks
 import isActiveRoute from "utils/helpers/ActiveRoute";
 import useDebounce from "utils/hooks/useDebounce";
+import useIsFirstRender from "utils/hooks/useIsFirstRender";
 
 const AppHeader = () => {
+  const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
   const searchQueryDebounced = useDebounce(searchQuery);
+  const isFirstRender = useIsFirstRender();
 
   useEffect(() => {
+    if (!isFirstRender) {
+      if (searchQueryDebounced) {
+        navigate(`/search?query=${searchQueryDebounced}`);
+      } else {
+        navigate(`/`);
+      }
+    }
     console.log(searchQueryDebounced);
   }, [searchQueryDebounced]);
 
