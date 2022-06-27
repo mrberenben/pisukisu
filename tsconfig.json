@@ -20,12 +20,14 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
+    "typeRoots": [
+      "node_modules/@types",
+      "src/types"
+    ]
   },
   "include": [
     "src",
-    "./**/*.ts",
-    "./**/*.tsx",
-    "./**/*.css",
+    "./src/react-app-env.d.ts"
   ],
   "exclude": [
     "node_modules",

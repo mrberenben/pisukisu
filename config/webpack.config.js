@@ -476,7 +476,7 @@ module.exports = function (webpackEnv) {
                   mode: "local",
                   // getLocalIdent: getCSSModuleLocalIdent,
                   getLocalIdent: (context, localIdentName, localName) =>
-                    obfuscatedClassName(localName, context.resourcePath)
+                    obfuscatedClassName(localName, context)
                 }
               })
             },

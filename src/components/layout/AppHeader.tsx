@@ -1,0 +1,64 @@
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import styles from "static/styles/components/layout/AppHeader.module.css";
+
+// config
+import { AppLogo } from "utils/config/images.config";
+import Navigation from "utils/config/navigation.config";
+import { SearchIcon } from "utils/config/icons.config";
+
+// hooks
+import isActiveRoute from "utils/helpers/ActiveRoute";
+import useDebounce from "utils/hooks/useDebounce";
+import useIsFirstRender from "utils/hooks/useIsFirstRender";
+
+const AppHeader = () => {
+  const navigate = useNavigate();
+  const [searchQuery, setSearchQuery] = useState("");
+  const searchQueryDebounced = useDebounce(searchQuery);
+  const isFirstRender = useIsFirstRender();
+
+  useEffect(() => {
+    if (!isFirstRender) {
+      if (searchQueryDebounced) {
+        navigate(`/search?query=${searchQueryDebounced}`);
+      } else {
+        navigate(`/`);
+      }
+    }
+    console.log(searchQueryDebounced);
+  }, [searchQueryDebounced]);
+
+  return (
+    <header className={styles.app_header}>
+      <div className={styles.app_logo}>
+        <img src={AppLogo} alt="Pisukisu" />
+      </div>
+
+      <ul className={styles.app_navigation}>
+        {Navigation.map(nav => (
+          <li key={nav.id}>
+            <a
+              href={nav.path}
+              className={isActiveRoute(nav.path) ? styles.route_active : undefined}
+            >
+              {nav.name}
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <div className={styles.app_search}>
+        <input
+          type="text"
+          placeholder="Search anime, genre, actor"
+          defaultValue={searchQuery}
+          onChange={e => setSearchQuery(e.target.value)}
+        />
+        <SearchIcon />
+      </div>
+    </header>
+  );
+};
+
+export default AppHeader;

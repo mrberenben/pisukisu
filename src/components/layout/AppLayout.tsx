@@ -1,6 +1,9 @@
 import { Outlet } from "react-router-dom";
 import styles from "static/styles/components/layout/AppLayout.module.css";
 
+// components
+import AppHeader from "components/layout/AppHeader";
+
 type Props = {
   isAuthenticated?: boolean | false;
 }
@@ -8,7 +11,11 @@ type Props = {
 const AppLayout = ({ isAuthenticated }: Props) => {
   return (
     <div className={styles.app_layout}>
-      <Outlet />
+      <AppHeader />
+      
+      <main className={styles.app_main}>
+        <Outlet />
+      </main>
     </div>
   );
 };

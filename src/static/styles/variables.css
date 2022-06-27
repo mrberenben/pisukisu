@@ -29,8 +29,15 @@
   /* typography */
 
   /* utils */
+  --pk-ui-utils-header-height: 72px;
 
   /* misc */
-
+  --pk-ui-misc-radius-xs: 3px;
+  --pk-ui-misc-radius-s: 6px;
+  --pk-ui-misc-radius-m: 9px;
+  --pk-ui-misc-radius-l: 12px;
+  --pk-ui-misc-radius-xl: 15px;
+  --pk-ui-misc-radius-xxl: 25px;
+  --pk-ui-misc-radius-rounded: 100%;
   /* media */
 }
