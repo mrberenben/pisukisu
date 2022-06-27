@@ -5,3 +5,11 @@
   inline-size: 100%;
   block-size: 100%;
 }
+
+.app_main {
+  display: flex;
+  flex-direction: column;
+
+  inline-size: 100%;
+  margin-block-start: var(--pk-ui-utils-header-height);
+}

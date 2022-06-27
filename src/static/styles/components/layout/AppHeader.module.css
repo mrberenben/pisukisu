@@ -1,0 +1,58 @@
+.app_header {
+  position: fixed;
+  inset: 0;
+  bottom: unset;
+
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+
+  inline-size: 100%;
+  block-size: var(--pk-ui-utils-header-height);
+
+  border-bottom: 1px solid var(--pk-ui-colors-dark-400);
+  /* background-color: var(--pk-ui-colors-dark-100); */
+  padding-inline: 3rem;
+
+  z-index: 10;
+}
+
+.app_logo {
+  display: flex;
+
+  inline-size: auto;
+  block-size: 48px;
+
+  margin-inline-end: 2rem;
+}
+
+.app_navigation {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  
+  gap: .75rem;
+}
+
+.app_navigation a {
+  font-size: 14px;
+  font-weight: 500;
+
+  color: var(--pk-ui-colors-light-500);
+
+  -webkit-transition: 150ms color ease;
+  transition: 150ms color ease;
+
+  will-change: color;
+}
+
+.app_navigation a.route_active {
+  color: var(--pk-ui-colors-light-100);
+}
+
+/* hover interactions */
+@media screen and (pointer: fine) and (hover: hover) {
+  .app_navigation a:hover {
+    color: var(--pk-ui-colors-light-100);
+  }
+}
