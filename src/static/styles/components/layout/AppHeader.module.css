@@ -50,6 +50,11 @@
   color: var(--pk-ui-colors-light-100);
 }
 
+.app_search {
+  display: flex;
+  margin-inline-start: auto;
+}
+
 /* hover interactions */
 @media screen and (pointer: fine) and (hover: hover) {
   .app_navigation a:hover {

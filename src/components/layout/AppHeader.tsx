@@ -1,8 +1,10 @@
 import styles from "static/styles/components/layout/AppHeader.module.css";
 
-// images
+// config
 import { AppLogo } from "utils/config/images.config";
 import Navigation from "utils/config/navigation.config";
+
+// hooks
 import isActiveRoute from "utils/helpers/ActiveRoute";
 
 const AppHeader = () => {
@@ -19,6 +21,10 @@ const AppHeader = () => {
           </li>
         )) }
       </ul>
+
+      <div className={styles.app_search}>
+        <input type="text" placeholder="Search anime, genre, actor" />
+      </div>
     </header>
   );
 }
