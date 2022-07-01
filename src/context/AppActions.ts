@@ -1,0 +1,4 @@
+export enum AppActions {
+  SET_ACTIVE_SERIE = "SET_ACTIVE_SERIE",
+  GET_ACTIVE_SERIE = "GET_ACTIVE_SERIE"
+}

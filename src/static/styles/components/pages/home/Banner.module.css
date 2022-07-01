@@ -21,6 +21,9 @@
   border-radius: var(--pk-ui-misc-radius-l);
   inline-size: 100%;
 
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+
   aspect-ratio: 1/1;
 }
 
@@ -38,4 +41,11 @@
 }
 .anime_poster_fifth {
   grid-area: fifth;
+}
+
+@media screen and (hover: hover) and (pointer: fine) {
+  .anime_poster:hover {
+    cursor: pointer;
+    outline-color: var(--pk-ui-colors-light-100);
+  }
 }

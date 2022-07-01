@@ -1,0 +1,82 @@
+.serie_modal_wrapper {
+  display: flex;
+  justify-content: center;
+
+  position: fixed;
+  inset: 0;
+
+  inline-size: 100%;
+  block-size: 100%;
+
+  overflow: auto;
+  will-change: scroll-position;
+  box-sizing: border-box;
+
+  z-index: 11;
+}
+
+.serie_modal_backdrop {
+  position: fixed;
+  inset: 0;
+
+  inline-size: 100%;
+  block-size: 100%;
+
+  background-color: rgba(0, 0, 0, 0.875);
+
+  will-change: opacity;
+  transition: 700ms opacity cubic-bezier(0.23, 1, 0.32, 1);
+  z-index: 0;
+}
+
+.serie_modal {
+  position: absolute;
+  top: 2rem;
+
+  inline-size: 100%;
+  max-inline-size: 900px;
+  block-size: 1100px;
+
+  background-color: var(--pk-ui-colors-dark-300);
+  border-radius: var(--pk-ui-misc-radius-m);
+  box-shadow: 0 3px 18px rgba(0, 0, 0, 0.325);
+
+  z-index: 2;
+  overflow: hidden;
+
+  transform-origin: 50% 12.5%;
+  will-change: transform, opacity;
+}
+
+.serie_modal_wrapper--enter .serie_modal_backdrop {
+  opacity: 0;
+}
+.serie_modal_wrapper--enter-active .serie_modal_backdrop {
+  opacity: 1;
+}
+.serie_modal_wrapper--exit .serie_modal_backdrop {
+  opacity: 1;
+}
+.serie_modal_wrapper--exit-active .serie_modal_backdrop {
+  opacity: 0;
+}
+
+.serie_modal_wrapper--enter .serie_modal {
+  transform: scale(0.975) translateY(7.5%);
+}
+.serie_modal_wrapper--enter-active .serie_modal {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  transition: 350ms opacity cubic-bezier(0.23, 1, 0.32, 1),
+    700ms transform cubic-bezier(0.23, 1, 0.32, 1);
+}
+.serie_modal_wrapper--exit .serie_modal {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+.serie_modal_wrapper--exit-active .serie_modal {
+  opacity: 0;
+  transform: scale(0.975) translateY(7.5%);
+  transition: 700ms opacity cubic-bezier(0.23, 1, 0.32, 1),
+    700ms transform cubic-bezier(0.23, 1, 0.32, 1);
+}

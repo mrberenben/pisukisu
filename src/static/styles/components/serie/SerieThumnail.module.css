@@ -1,0 +1,26 @@
+.serie {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+
+  inline-size: 100%;
+  block-size: 100%;
+  min-block-size: 200px;
+
+  background-color: var(--pk-ui-colors-dark-200);
+  border-radius: var(--pk-ui-misc-radius-s);
+
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+
+@media screen and (hover: hover) and (pointer: fine) {
+  .serie:hover {
+    cursor: pointer;
+    outline-color: var(--pk-ui-colors-light-100);
+  }
+}

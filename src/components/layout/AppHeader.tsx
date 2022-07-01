@@ -27,7 +27,6 @@ const AppHeader = () => {
         navigate(`/`);
       }
     }
-    console.log(searchQueryDebounced);
   }, [searchQueryDebounced]);
 
   return (
