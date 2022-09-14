@@ -16,11 +16,13 @@ const SerieThumbnail = ({ serie }: Props) => {
 
   const handleSelectSerie = () => {
     dispatch({ type: AppActions.SET_ACTIVE_SERIE, payload: serie });
+    dispatch({ type: AppActions.SET_SERIE_MODAL, payload: true });
   };
 
   return (
     <article className={styles.serie} onClick={() => handleSelectSerie()}>
-      {serie.name}
+      <img src={serie.sources.thumbnail} alt={serie.name} className={styles.serie_image} />
+      <p className={styles.serie_name}>{serie.name}</p>
     </article>
   );
 };

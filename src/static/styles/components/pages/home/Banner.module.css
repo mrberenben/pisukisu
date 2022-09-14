@@ -1,10 +1,7 @@
 .banner {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 1fr 1fr;
-  grid-template-areas:
-    "first first second third"
-    "first first fourth fifth";
   gap: 1rem;
 
   inline-size: 100%;
@@ -27,7 +24,7 @@
   aspect-ratio: 1/1;
 }
 
-.anime_poster_first {
+/* .anime_poster_first {
   grid-area: first;
 }
 .anime_poster_second {
@@ -41,7 +38,7 @@
 }
 .anime_poster_fifth {
   grid-area: fifth;
-}
+} */
 
 @media screen and (hover: hover) and (pointer: fine) {
   .anime_poster:hover {

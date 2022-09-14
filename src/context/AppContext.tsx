@@ -7,7 +7,8 @@ import { AppContextType, AppDispatchContextType } from "types/app";
 import { AppActions } from "context/AppActions";
 
 const AppState = {
-  activeSerie: null
+  activeSerie: null,
+  serieModal: false
 };
 
 const AppContext = React.createContext<AppContextType>(AppState);
@@ -25,8 +26,15 @@ const AppReducer = (state: any, action: { type: string; payload: any }) => {
 
     case AppActions.SET_ACTIVE_SERIE: {
       return {
-        ...AppState,
+        ...state,
         activeSerie: payload
+      };
+    }
+
+    case AppActions.SET_SERIE_MODAL: {
+      return {
+        ...state,
+        serieModal: payload
       };
     }
 

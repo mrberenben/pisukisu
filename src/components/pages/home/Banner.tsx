@@ -8,6 +8,9 @@ const Banner = () => {
       <div className={`${styles.anime_poster} ${styles.anime_poster_third}`}>third anime</div>
       <div className={`${styles.anime_poster} ${styles.anime_poster_fourth}`}>fourth anime</div>
       <div className={`${styles.anime_poster} ${styles.anime_poster_fifth}`}>fifth anime</div>
+      <div className={`${styles.anime_poster} ${styles.anime_poster_sixth}`}>sixth anime</div>
+      <div className={`${styles.anime_poster} ${styles.anime_poster_seventh}`}>seventh anime</div>
+      <div className={`${styles.anime_poster} ${styles.anime_poster_eighth}`}>eighth anime</div>
     </div>
   );
 };

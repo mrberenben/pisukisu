@@ -1,7 +1,7 @@
 @import "./variables.css";
 @import "./fonts.css";
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   width: 12px;
 }
 
@@ -18,7 +18,7 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--pk-ui-colors-dark-600);
-}
+} */
 
 ::selection {
   background-color: var(--pk-ui-colors-primary);
