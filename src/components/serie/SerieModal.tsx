@@ -104,19 +104,24 @@ const SerieModal = () => {
               <ul>
                 {activeSerie?.episodes.length ? (
                   activeSerie?.episodes.map((episode, i) => (
-                    <li key={i} className={styles.serie_modal_episode}>
-                      <div className={styles.serie_modal_episode_thumbnail}>
-                        <img src={episode.image} alt={episode.name} />
-                        <span className={styles.serie_modal_episode_shadow} />
-                      </div>
-
-                      <div className={styles.serie_modal_episode_info}>
-                        <div className={styles.episode_title}>
-                          <h6>{episode.name}</h6>
-                          <span>{(episode.duration / 60).toFixed(0)}min.</span>
+                    <li key={i} title={episode.description}>
+                      <a
+                        href={`/watch/${activeSerie?.slug}/${episode.id}`}
+                        className={styles.serie_modal_episode}
+                      >
+                        <div className={styles.serie_modal_episode_thumbnail}>
+                          <img src={episode.image} alt={episode.name} />
+                          <span className={styles.serie_modal_episode_shadow} />
                         </div>
-                        <p>{episode.description}</p>
-                      </div>
+
+                        <div className={styles.serie_modal_episode_info}>
+                          <div className={styles.episode_title}>
+                            <h6>{episode.name}</h6>
+                            <span>{(episode.duration / 60).toFixed(0)}min.</span>
+                          </div>
+                          <p>{episode.description}</p>
+                        </div>
+                      </a>
                     </li>
                   ))
                 ) : (

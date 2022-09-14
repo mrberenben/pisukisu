@@ -294,9 +294,10 @@
   flex-flow: row nowrap;
 
   padding-block: 1.5rem;
+  color: var(--pk-ui-colors-light-100);
 }
 
-.serie_modal_episode:not(:last-child) {
+.serie_modal_episodes li:not(:last-child) .serie_modal_episode {
   border-bottom: 1px solid var(--pk-ui-colors-dark-400);
 }
 

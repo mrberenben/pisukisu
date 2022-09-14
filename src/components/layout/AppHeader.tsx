@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import styles from "static/styles/components/layout/AppHeader.module.css";
 
 // config
@@ -18,6 +18,7 @@ const AppHeader = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const searchQueryDebounced = useDebounce(searchQuery);
   const isFirstRender = useIsFirstRender();
+  const [search] = useSearchParams();
 
   useEffect(() => {
     if (!isFirstRender) {
@@ -54,7 +55,7 @@ const AppHeader = () => {
             <input
               type="text"
               placeholder="Search anime, genre, actor"
-              defaultValue={searchQuery}
+              defaultValue={searchQuery || search.get("query") || ""}
               onChange={e => setSearchQuery(e.target.value)}
             />
             <SearchIcon />

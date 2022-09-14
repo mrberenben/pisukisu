@@ -15,7 +15,10 @@ const SerieThumbnail = ({ serie }: Props) => {
   const dispatch = useAppDispatch();
 
   const handleSelectSerie = () => {
-    dispatch({ type: AppActions.SET_ACTIVE_SERIE, payload: serie });
+    dispatch({
+      type: AppActions.SET_ACTIVE_SERIE,
+      payload: serie
+    });
     dispatch({ type: AppActions.SET_SERIE_MODAL, payload: true });
   };
 
