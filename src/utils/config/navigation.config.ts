@@ -4,11 +4,11 @@ const Navigation = [
     name: "Browse",
     path: "/"
   },
-  {
-    id: 1,
-    name: "Categories",
-    path: "/categories"
-  },
+  // {
+  //   id: 1,
+  //   name: "Categories",
+  //   path: "/categories"
+  // },
   {
     id: 2,
     name: "Discord",

@@ -13,3 +13,47 @@
   inline-size: 100%;
   margin-block-start: var(--pk-ui-utils-header-height);
 }
+
+.container {
+  inline-size: 100%;
+  max-inline-size: 1440px;
+
+  padding-inline: 1rem;
+  margin-inline: auto;
+}
+
+.genre {
+  display: flex;
+  flex-direction: column;
+
+  gap: 1.5rem;
+  padding-block: 1.5rem;
+}
+
+.genre_header {
+  display: flex;
+  flex-direction: column;
+}
+
+.genre_header h4 {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+
+  gap: 0.5rem;
+  font-weight: 500;
+}
+
+.genre_header p {
+  color: var(--pk-ui-colors-light-400);
+  line-height: 1.25;
+}
+
+.genre_body {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, calc(25% - (0.25rem * 3))));
+  grid-auto-rows: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+
+  inline-size: 100%;
+}

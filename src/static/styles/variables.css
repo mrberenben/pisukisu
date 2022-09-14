@@ -1,7 +1,7 @@
 :root {
   /* colors */
   --pk-ui-colors-primary: #e1499f;
-  --pk-ui-colors-primary-hover: #ef58ad;
+  --pk-ui-colors-primary-hover: rgba(225, 73, 159, 0.884);
   --pk-ui-colors-primary-active: #be4487;
 
   --pk-ui-colors-dark-default: #000;

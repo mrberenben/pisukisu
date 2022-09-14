@@ -11,11 +11,18 @@
   block-size: var(--pk-ui-utils-header-height);
 
   border-bottom: 1px solid var(--pk-ui-colors-dark-400);
-  /* background-color: var(--pk-ui-colors-dark-100); */
-  padding-inline: 3rem;
+  background-color: var(--pk-ui-colors-dark-default);
   gap: 1rem;
 
   z-index: 10;
+}
+
+.header_wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+
+  inline-size: 100%;
 }
 
 .app_logo {
