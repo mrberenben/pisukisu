@@ -12,7 +12,7 @@ const Navigation = [
   {
     id: 2,
     name: "Discord",
-    path: "/discord"
+    path: "https://discord.gg/4ExHy4cGXa"
   }
 ];
 

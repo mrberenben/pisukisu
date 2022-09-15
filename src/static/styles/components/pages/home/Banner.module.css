@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 1fr 1fr;
+  grid-template-areas: "first first second third" "first first fourth fifth";
   gap: 1rem;
 
   inline-size: 100%;
@@ -22,9 +23,10 @@
   outline-offset: 2px;
 
   aspect-ratio: 1/1;
+  overflow: hidden;
 }
 
-/* .anime_poster_first {
+.anime_poster_first {
   grid-area: first;
 }
 .anime_poster_second {
@@ -38,11 +40,24 @@
 }
 .anime_poster_fifth {
   grid-area: fifth;
-} */
+}
+
+.anime_poster img {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
 
 @media screen and (hover: hover) and (pointer: fine) {
   .anime_poster:hover {
     cursor: pointer;
     outline-color: var(--pk-ui-colors-light-100);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .banner {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "first first" "first first" "second third" "fourth fifth";
   }
 }

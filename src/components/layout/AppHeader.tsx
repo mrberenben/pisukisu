@@ -34,9 +34,9 @@ const AppHeader = () => {
     <header className={styles.app_header}>
       <Container>
         <div className={styles.header_wrapper}>
-          <div className={styles.app_logo}>
+          <a href="/" className={styles.app_logo}>
             <img src={AppLogo} alt="Pisukisu" />
-          </div>
+          </a>
 
           <ul className={styles.app_navigation}>
             {Navigation.map(nav => (
@@ -44,6 +44,8 @@ const AppHeader = () => {
                 <a
                   href={nav.path}
                   className={isActiveRoute(nav.path) ? styles.route_active : undefined}
+                  target={nav.path.startsWith("http") ? "_blank" : "_self"}
+                  rel="noreferrer"
                 >
                   {nav.name}
                 </a>
@@ -54,7 +56,7 @@ const AppHeader = () => {
           <div className={styles.app_search}>
             <input
               type="text"
-              placeholder="Search anime, genre, actor"
+              placeholder="Search anime"
               defaultValue={searchQuery || search.get("query") || ""}
               onChange={e => setSearchQuery(e.target.value)}
             />

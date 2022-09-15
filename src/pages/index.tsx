@@ -16,6 +16,7 @@ const Index = () => {
           key={genre.id}
           genre={genre.name}
           prefix={genre.prefix}
+          description={genre.suggestion_reason}
           data={Series.filter(serie => serie.genres.includes(genre.name))}
         />
       ))}

@@ -39,7 +39,6 @@
 
   background-color: var(--pk-ui-colors-dark-300);
   border-radius: var(--pk-ui-misc-radius-m);
-  /* box-shadow: 0 3px 18px rgba(0, 0, 0, 0.325); */
   box-shadow: rgba(0, 0, 0, 0.75) 0px 3px 10px;
 
   z-index: 2;
@@ -395,5 +394,78 @@
 
   .serie_modal_episode:hover {
     cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .serie_modal_metadata h6 {
+    font-size: 2rem;
+  }
+
+  .serie_modal_episodes > h6 {
+    font-size: 1.5rem;
+  }
+
+  .serie_modal_episode::before {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .serie_modal {
+    inline-size: 96%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .serie_modal_metadata h6 {
+    font-size: 1.5rem;
+  }
+
+  .serie_modal_metadata p,
+  .serie_modal_metadata ul,
+  .serie_modal_metadata span {
+    font-size: 0.875rem;
+  }
+
+  .serie_modal_play_button {
+    font-size: 1rem;
+    padding: 0.625rem 1.5rem 0.625rem 1.25rem;
+  }
+
+  .serie_modal_play_button span {
+    inline-size: 18px;
+    block-size: 18px;
+  }
+
+  .serie_modal_episodes > h6 {
+    font-size: 1.125rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .serie_modal_body {
+    padding: 1rem 1.25rem 0;
+  }
+
+  .serie_modal_episode::before {
+    display: none;
+  }
+
+  .serie_modal_episode_info .episode_title h6 {
+    font-size: 0.875rem;
+  }
+
+  .serie_modal_episode_info .episode_title span {
+    font-size: 0.75rem;
+  }
+
+  .serie_modal_episode_info p {
+    font-size: 0.75rem;
+  }
+
+  .serie_modal_episode_thumbnail {
+    inline-size: 120px;
+    block-size: 66px;
   }
 }

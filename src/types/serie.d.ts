@@ -1,4 +1,5 @@
 import { IEpisode } from "types/episode";
+
 export interface ISerie {
   id: string;
   name: string;

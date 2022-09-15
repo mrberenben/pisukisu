@@ -32,7 +32,7 @@
   justify-content: center;
   align-items: center;
 
-  color: var(--pk-ui-colors-dark-900);
+  color: var(--pk-ui-colors-light-600);
   font-size: 15px;
   text-align: center;
 }
