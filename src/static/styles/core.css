@@ -139,6 +139,11 @@ textarea {
   resize: none;
 }
 
+#mount {
+  inline-size: 100%;
+  block-size: 100%;
+}
+
 .icon {
   display: flex;
   inline-size: 24px;

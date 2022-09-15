@@ -21,6 +21,7 @@ const Series = [
           "In 2000, the first disastrous contact with the mysterious beings known as Angels resulted in the global cataclysm referred to as the Second Impact, which wiped out half of the human race.",
         image: "/assets/content/7eb2eac6-b89b-43cb-9c2d-70a2f958e559/episode/1.webp",
         duration: 1400,
+        source: "",
         aired: new Date(1664830800)
       },
       {
@@ -31,6 +32,7 @@ const Series = [
           "Shinji wakes up in the hospital, with no recollection of the fight against the Angel the night before. Gendo wants nothing to do with him, so NERV's head of operations, the young and attractive Misato Katsuragi, becomes his legal guardian. Settling into life in Misato's apartment, he eventually recalls the furious battle.",
         image: "/assets/content/7eb2eac6-b89b-43cb-9c2d-70a2f958e559/episode/2.webp",
         duration: 1320,
+        source: "",
         aired: new Date(1664830800)
       }
     ]
@@ -57,6 +59,7 @@ const Series = [
           "In 2000, the first disastrous contact with the mysterious beings known as Angels resulted in the global cataclysm referred to as the Second Impact, which wiped out half of the human race.",
         image: "/assets/content/7eb2eac6-b89b-43cb-9c2d-70a2f958e559/episode/1.webp",
         duration: 1400,
+        source: "",
         aired: new Date(1664830800)
       },
       {
@@ -67,9 +70,35 @@ const Series = [
           "Shinji wakes up in the hospital, with no recollection of the fight against the Angel the night before. Gendo wants nothing to do with him, so NERV's head of operations, the young and attractive Misato Katsuragi, becomes his legal guardian. Settling into life in Misato's apartment, he eventually recalls the furious battle.",
         image: "/assets/content/7eb2eac6-b89b-43cb-9c2d-70a2f958e559/episode/2.webp",
         duration: 1320,
+        source: "",
         aired: new Date(1664830800)
       }
     ]
+  }
+];
+
+const Episodes = [
+  {
+    id: "3d848df5-bc9f-41af-981c-046b0ef906de",
+    index: 1,
+    name: "Angel Attack",
+    description:
+      "In 2000, the first disastrous contact with the mysterious beings known as Angels resulted in the global cataclysm referred to as the Second Impact, which wiped out half of the human race.",
+    image: "/assets/content/7eb2eac6-b89b-43cb-9c2d-70a2f958e559/episode/1.webp",
+    duration: 1400,
+    source: "",
+    aired: new Date(1664830800)
+  },
+  {
+    id: "435e3e66-0137-400a-b965-baba9cfc431a",
+    index: 2,
+    name: "The Beast",
+    description:
+      "Shinji wakes up in the hospital, with no recollection of the fight against the Angel the night before. Gendo wants nothing to do with him, so NERV's head of operations, the young and attractive Misato Katsuragi, becomes his legal guardian. Settling into life in Misato's apartment, he eventually recalls the furious battle.",
+    image: "/assets/content/7eb2eac6-b89b-43cb-9c2d-70a2f958e559/episode/2.webp",
+    duration: 1320,
+    source: "",
+    aired: new Date(1664830800)
   }
 ];
 
@@ -97,4 +126,4 @@ const Genres = [
   // }
 ];
 
-export { Series, Genres };
+export { Series, Episodes, Genres };

@@ -37,7 +37,7 @@ const SerieModal = () => {
 
   const handlePlay = useCallback(() => {
     if (activeSerie?.episodes !== undefined && activeSerie?.episodes.length > 0) {
-      navigate(`/watch/${activeSerie?.slug}/${activeSerie?.episodes[0].id}`);
+      navigate(`/watch/${activeSerie?.episodes[0].id}`);
     }
   }, [activeSerie]);
 
@@ -81,7 +81,7 @@ const SerieModal = () => {
               {activeSerie?.episodes.length ? (
                 <a
                   role="button"
-                  href={`/watch/${activeSerie?.slug}/${activeSerie?.episodes[0].id}`}
+                  href={`/watch/${activeSerie?.episodes[0].id}`}
                   className={styles.serie_modal_play_button}
                 >
                   <span>
@@ -105,10 +105,7 @@ const SerieModal = () => {
                 {activeSerie?.episodes.length ? (
                   activeSerie?.episodes.map((episode, i) => (
                     <li key={i} title={episode.description}>
-                      <a
-                        href={`/watch/${activeSerie?.slug}/${episode.id}`}
-                        className={styles.serie_modal_episode}
-                      >
+                      <a href={`/watch/${episode.id}`} className={styles.serie_modal_episode}>
                         <div className={styles.serie_modal_episode_thumbnail}>
                           <img src={episode.image} alt={episode.name} />
                           <span className={styles.serie_modal_episode_shadow} />

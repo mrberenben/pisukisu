@@ -5,5 +5,6 @@ export interface IEpisode {
   description: string;
   image: string;
   duration: number;
+  source: string;
   aired: Date;
 }
