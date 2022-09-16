@@ -1,0 +1,26 @@
+.control_button {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  inline-size: 2.875rem;
+  block-size: 2.875rem;
+
+  color: var(--pk-ui-colors-light-default);
+  cursor: pointer;
+
+  transition: 150ms transform ease;
+  will-change: transform;
+}
+
+.control_button:hover {
+  transform: scale(1.25);
+}
+
+.control_button :global(.icon),
+.control_button svg {
+  inline-size: 100%;
+  block-size: 100%;
+}

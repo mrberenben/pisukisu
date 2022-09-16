@@ -12,6 +12,9 @@ import { SerieModalClassNames } from "utils/config/styles.config";
 import { useAppState, useAppDispatch } from "context/AppContext";
 import { AppActions } from "context/AppActions";
 
+// icons
+import { CloseIcon, PlayIcon } from "utils/config/icons.config";
+
 const SerieModal = () => {
   const { serieModal, activeSerie } = useAppState();
   const dispatch = useAppDispatch();
@@ -57,11 +60,7 @@ const SerieModal = () => {
               <span className={styles.serie_modal_storyart_backdrop} />
             </div>
             <button type="button" className={styles.serie_modal_close} onClick={handleClose}>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                <g>
-                  <path d="m13.41 12 4.3-4.29a1 1 0 1 0-1.42-1.42L12 10.59l-4.29-4.3a1 1 0 0 0-1.42 1.42l4.3 4.29-4.3 4.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l4.29-4.3 4.29 4.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z" />
-                </g>
-              </svg>
+              <CloseIcon />
             </button>
           </header>
           <main className={styles.serie_modal_body}>
@@ -85,13 +84,7 @@ const SerieModal = () => {
                   className={styles.serie_modal_play_button}
                 >
                   <span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="currentColor"
-                      viewBox="8 5.82 10.15 12.36"
-                    >
-                      <path d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z" />
-                    </svg>
+                    <PlayIcon />
                   </span>
                   Play
                 </a>

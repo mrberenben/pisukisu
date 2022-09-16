@@ -120,6 +120,29 @@ input {
   font: inherit;
 }
 
+input[type="range"] {
+  -webkit-appearance: none;
+  inline-size: 100%;
+  background: transparent;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type="range"]:focus {
+  outline: none;
+}
+
+input[type="range"]::-ms-track {
+  inline-size: 100%;
+  cursor: pointer;
+
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
 input::placeholder {
   color: var(--pk-ui-colors-dark-900);
 }

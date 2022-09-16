@@ -7,3 +7,9 @@
 
   background-color: var(--pk-ui-colors-dark-default);
 }
+
+.video {
+  inline-size: 100%;
+  block-size: 100%;
+  background-color: var(--pk-ui-colors-dark-default);
+}

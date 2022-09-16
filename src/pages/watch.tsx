@@ -1,10 +1,14 @@
-import { useEffect, useState } from "react";
+import { useRef, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styles from "static/styles/pages/watch.module.css";
+
+// context
+import { PlayerProvider } from "context/PlayerContext";
 
 // components
 import WatchPreloader from "components/pages/watch/WatchPreloader";
 import WatchError from "components/pages/watch/WatchError";
+import Player from "components/pages/watch/Player";
 
 // types
 import { IEpisode } from "types/episode";
@@ -12,8 +16,11 @@ import { IEpisode } from "types/episode";
 // config
 import { Episodes } from "utils/config/series.config";
 
+// assets
+import { Splash } from "utils/config/images.config";
+
 type EpisodeInitalState = {
-  episode: IEpisode | null;
+  data: IEpisode | null;
   loading: boolean;
   error: boolean;
 };
@@ -21,7 +28,7 @@ type EpisodeInitalState = {
 const Watch = () => {
   const { id } = useParams();
   const [episode, setEpisode] = useState<EpisodeInitalState>({
-    episode: null,
+    data: null,
     loading: false,
     error: false
   });
@@ -34,7 +41,7 @@ const Watch = () => {
 
     if (!id) {
       setEpisode({
-        episode: null,
+        data: null,
         loading: false,
         error: true
       });
@@ -47,7 +54,7 @@ const Watch = () => {
     if (!data) {
       setTimeout(() => {
         setEpisode({
-          episode: null,
+          data: null,
           loading: false,
           error: true
         });
@@ -57,16 +64,20 @@ const Watch = () => {
     }
 
     setEpisode({
-      episode: data,
+      data,
       loading: false,
       error: false
     });
   }, [id]);
 
   if (episode.loading) return <WatchPreloader />;
-  if (episode.error) return <WatchError />;
+  if (episode.error || !episode.data) return <WatchError />;
 
-  return <div className={styles.watch}></div>;
+  return (
+    <PlayerProvider>
+      <Player episode={episode.data} />
+    </PlayerProvider>
+  );
 };
 
 export default Watch;
