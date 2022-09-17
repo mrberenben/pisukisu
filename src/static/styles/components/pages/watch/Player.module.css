@@ -167,6 +167,8 @@
 
   will-change: left;
   z-index: 1;
+
+  pointer-events: none;
 }
 
 .timeline_container:hover .timeline::before {
@@ -187,6 +189,7 @@
   transform-origin: left center;
   transform: scaleX(calc(var(--progress-position) * 100%));
   will-change: transform;
+  pointer-events: none;
 }
 
 .thumb_indicator {
@@ -204,6 +207,8 @@
   transform-origin: center;
   will-change: transform, left;
   z-index: 2;
+
+  pointer-events: none;
 }
 
 .controls {

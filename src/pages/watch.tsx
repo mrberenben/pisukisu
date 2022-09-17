@@ -16,9 +16,6 @@ import { IEpisode } from "types/episode";
 // config
 import { Episodes } from "utils/config/series.config";
 
-// assets
-import { Splash } from "utils/config/images.config";
-
 type EpisodeInitalState = {
   data: IEpisode | null;
   loading: boolean;
@@ -32,6 +29,7 @@ const Watch = () => {
     loading: false,
     error: false
   });
+  const [nextEpisodeId, setNextEpisodeId] = useState<string | null>(null);
 
   useEffect(() => {
     setEpisode(state => ({
@@ -63,19 +61,33 @@ const Watch = () => {
       return;
     }
 
-    setEpisode({
-      data,
-      loading: false,
-      error: false
-    });
+    setTimeout(() => {
+      setEpisode({
+        data,
+        loading: false,
+        error: false
+      });
+    }, 1500);
   }, [id]);
+
+  useEffect(() => {
+    if (episode.data) {
+      const episode_id = +episode.data.index;
+      const next_episode = Episodes.find(ep => ep.index === episode_id + 1);
+
+      if (next_episode) {
+        console.log(next_episode);
+        setNextEpisodeId(next_episode.id);
+      }
+    }
+  }, [episode.data]);
 
   if (episode.loading) return <WatchPreloader />;
   if (episode.error || !episode.data) return <WatchError />;
 
   return (
     <PlayerProvider>
-      <Player episode={episode.data} />
+      <Player episode={episode.data} nextEpisode={nextEpisodeId} />
     </PlayerProvider>
   );
 };

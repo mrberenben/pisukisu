@@ -30,9 +30,10 @@ import useEventListener from "utils/hooks/useEventListener";
 
 type PlayerProps = {
   episode: IEpisode;
+  nextEpisode: string | null;
 };
 
-const Player = ({ episode }: PlayerProps) => {
+const Player = ({ episode, nextEpisode }: PlayerProps) => {
   const navigate = useNavigate();
   const player = usePlayerState();
   const dispatch = usePlayerDispatch();
@@ -163,10 +164,19 @@ const Player = ({ episode }: PlayerProps) => {
   useEventListener("mousemove", handleTimelineUpdate, Timeline);
   useEventListener("mousedown", toggleScrubbing, Timeline);
   useEventListener("mouseup", e => scrubbing && toggleScrubbing(e), Document);
-  useEventListener("mousemove", e => scrubbing && handleTimelineUpdate(e), Document);
+  useEventListener(
+    "mousemove",
+    e => {
+      handleMouseIdle();
+      if (scrubbing) {
+        handleTimelineUpdate(e);
+      }
+    },
+    Document
+  );
 
   // setup listener (mouse idle)
-  useEventListener("mousemove", handleMouseIdle, Document);
+  // useEventListener("mousemove", handleMouseIdle, Document);
 
   // handle timeupdate
   useEffect(() => {
@@ -301,9 +311,14 @@ const Player = ({ episode }: PlayerProps) => {
               </div>
               <div className={styles.controls_right}>
                 {/* next episode */}
-                <ControlButton title="Next episode">
-                  <BiArrowToRight />
-                </ControlButton>
+                {nextEpisode && (
+                  <ControlButton
+                    title="Next episode"
+                    onClick={() => navigate(`/watch/${nextEpisode}`)}
+                  >
+                    <BiArrowToRight />
+                  </ControlButton>
+                )}
 
                 {/* toggle captions */}
                 <ControlButton title="Toggle captions">
