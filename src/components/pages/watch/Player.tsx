@@ -122,7 +122,7 @@ const Player = ({ episode }: PlayerProps) => {
       const max: number = +e.target.max;
       const val: number = +e.target.value;
 
-      e.target.style.backgroundSize = ((val - min) * 100) / (max - min) + "% 100%";
+      e.target.style.backgroundSize = `${((val - min) * 100) / (max - min)}% 100%`;
     }
   };
 
