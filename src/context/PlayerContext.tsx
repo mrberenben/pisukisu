@@ -14,7 +14,8 @@ const PlayerState = {
   muted: false,
   volume: 1,
   captions: false,
-  fullscreen: false
+  fullscreen: false,
+  player_view: true
 };
 
 const PlayerContext = React.createContext<PlayerContextType>(PlayerState);
@@ -72,6 +73,13 @@ const PlayerReducer = (state: any, action: { type: string; payload: any }) => {
       return {
         ...state,
         fullscreen: payload
+      };
+    }
+
+    case AppActions.SHOW_PLAYER_VIEW: {
+      return {
+        ...state,
+        player_view: payload
       };
     }
 

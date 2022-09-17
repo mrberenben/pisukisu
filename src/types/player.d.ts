@@ -7,6 +7,7 @@ type PlayerContextType = {
   volume: number;
   captions: boolean;
   fullscreen: boolean;
+  player_view: boolean;
 };
 
 type PlayerDispatchContextType<State, Action> = ({ type: State, payload: Action }) => State;

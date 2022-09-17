@@ -21,6 +21,18 @@
 
   inline-size: 100%;
   block-size: 100%;
+
+  opacity: 1;
+  visibility: visible;
+
+  transition: 250ms opacity ease, 250ms visibility ease;
+  will-change: opacity, visibility;
+}
+
+.player_view.inactive {
+  opacity: 0;
+  visibility: hidden;
+  cursor: none;
 }
 
 .player {
@@ -36,6 +48,18 @@
   position: relative;
   display: flex;
   flex-grow: 1;
+}
+
+.player_main::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  bottom: initial;
+
+  inline-size: 100%;
+  block-size: 6rem;
+
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.42) 25%, rgba(0, 0, 0, 0) 100%);
 }
 
 .player_main button {
@@ -75,8 +99,8 @@
 
   background-color: transparent;
   background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.42) 25%, rgba(0, 0, 0, 0) 100%);
-  padding: 0 2rem 2rem;
-  gap: 1.75rem;
+  padding: 0 2rem 1rem;
+  gap: 1rem;
 }
 
 .progress {
@@ -107,7 +131,7 @@
   align-items: center;
 
   inline-size: 100%;
-  block-size: 6px;
+  block-size: 8px;
 
   cursor: pointer;
 }
@@ -131,19 +155,20 @@
 .timeline::before {
   content: "";
   position: absolute;
-  left: 0;
+  left: calc(var(--preview-position) * 100%);
   top: 0;
   bottom: 0;
 
   display: none;
 
-  inline-size: 100%;
+  inline-size: 3px;
   block-size: 100%;
-  background-color: var(--pk-ui-colors-light-500);
+  background-color: rgba(255, 255, 255, 0.475);
 
-  transform-origin: left center;
-  transform: scaleX(calc(var(--preview-position) * 100%));
-  will-change: transform;
+  will-change: left;
+  z-index: 1;
+
+  pointer-events: none;
 }
 
 .timeline_container:hover .timeline::before {
@@ -164,6 +189,7 @@
   transform-origin: left center;
   transform: scaleX(calc(var(--progress-position) * 100%));
   will-change: transform;
+  pointer-events: none;
 }
 
 .thumb_indicator {
@@ -180,6 +206,9 @@
   transform: translate3d(-50%, -50%, 0);
   transform-origin: center;
   will-change: transform, left;
+  z-index: 2;
+
+  pointer-events: none;
 }
 
 .controls {
@@ -202,11 +231,12 @@
   gap: 1.5rem;
 }
 
-.controls_left button:first-of-type {
-  margin-inline-end: 1rem;
+.controls_left button[title="Toggle play/pause"] {
+  inline-size: 4rem;
+  block-size: 4rem;
 }
 
-.controls_left button:last-of-type {
+.controls_left button:last-child {
   margin-inline-start: 0.5rem;
 }
 
@@ -216,10 +246,17 @@
   font-size: 12px;
 }
 
+.controls_right button[title="Next episode"] {
+  inline-size: 3.5rem;
+  block-size: 3.55rem;
+}
+
 .adjust_volume {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
+
+  margin-inline-start: 0.5rem;
 }
 
 .adjust_volume button {
@@ -252,6 +289,8 @@
 .volume_scrubber {
   display: flex;
   inline-size: 0;
+
+  margin-inline-start: 1rem;
 
   transition: 200ms inline-size ease;
   transition-delay: 350ms;
