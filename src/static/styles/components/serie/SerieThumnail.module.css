@@ -1,0 +1,48 @@
+.serie {
+  display: flex;
+  flex-direction: column;
+
+  inline-size: 100%;
+  block-size: 100%;
+  /* min-block-size: 191px; */
+
+  gap: 0.5rem;
+}
+
+.serie_image {
+  display: flex;
+  inline-size: 100%;
+  /* min-block-size: 191px; */
+
+  background-color: var(--pk-ui-colors-dark-200);
+  border-radius: var(--pk-ui-misc-radius-s);
+
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+
+  aspect-ratio: 16/9;
+
+  overflow: hidden;
+  user-select: none;
+  pointer-events: none;
+}
+
+.serie_name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: var(--pk-ui-colors-light-600);
+  font-size: 15px;
+  text-align: center;
+}
+
+@media screen and (hover: hover) and (pointer: fine) {
+  .serie:hover {
+    cursor: pointer;
+  }
+
+  .serie:hover .serie_image {
+    outline-color: var(--pk-ui-colors-light-100);
+  }
+}

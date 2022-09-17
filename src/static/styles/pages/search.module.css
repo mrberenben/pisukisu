@@ -1,0 +1,24 @@
+.search_wrapper {
+  display: flex;
+  flex-direction: column;
+
+  margin-block-start: 3rem;
+}
+
+.search_wrapper h4 {
+  color: var(--pk-ui-colors-light-100);
+  margin-block-end: 2rem;
+}
+
+.search_wrapper h4 span {
+  font-weight: 800;
+}
+
+.search_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, calc(25% - (0.25rem * 3))));
+  grid-auto-rows: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+
+  inline-size: 100%;
+}

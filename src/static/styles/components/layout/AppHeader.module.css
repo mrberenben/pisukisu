@@ -1,0 +1,119 @@
+.app_header {
+  position: fixed;
+  inset: 0;
+  bottom: unset;
+
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+
+  inline-size: 100%;
+  block-size: var(--pk-ui-utils-header-height);
+
+  border-bottom: 1px solid var(--pk-ui-colors-dark-400);
+  background-color: var(--pk-ui-colors-dark-default);
+  gap: 1rem;
+
+  z-index: 10;
+}
+
+.header_wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+
+  inline-size: 100%;
+}
+
+.app_logo {
+  display: flex;
+
+  inline-size: auto;
+  block-size: 48px;
+
+  margin-inline-end: 1rem;
+}
+
+.app_navigation {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+
+  gap: 0.875rem;
+}
+
+.app_navigation a {
+  font-size: 14px;
+  font-weight: 500;
+
+  color: var(--pk-ui-colors-light-500);
+
+  -webkit-transition: 150ms color ease;
+  transition: 150ms color ease;
+
+  will-change: color;
+}
+
+.app_navigation a.route_active {
+  color: var(--pk-ui-colors-light-100);
+}
+
+.app_search {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  max-inline-size: 234px;
+  margin-inline-start: auto;
+}
+
+.app_search input {
+  inline-size: 100%;
+
+  padding-block: 0.5rem;
+  padding-inline: 2.5rem 0.5rem;
+
+  border-radius: var(--pk-ui-misc-radius-s);
+
+  outline: 1px solid var(--pk-ui-colors-dark-400);
+
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--pk-ui-colors-light-100);
+
+  will-change: outline-width;
+}
+
+.app_search input:focus {
+  outline-width: 2px;
+  outline-color: var(--pk-ui-colors-dark-600);
+}
+
+.app_search :global(.icon) {
+  position: absolute;
+  left: 0.75rem;
+
+  inline-size: 18px;
+  block-size: 18px;
+
+  margin-block-start: 0.125rem;
+
+  color: var(--pk-ui-colors-dark-900);
+}
+
+/* hover interactions */
+@media screen and (pointer: fine) and (hover: hover) {
+  .app_navigation a:hover {
+    color: var(--pk-ui-colors-light-100);
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .app_logo {
+    display: none;
+  }
+
+  .app_navigation {
+    padding-inline-end: 1rem;
+  }
+}

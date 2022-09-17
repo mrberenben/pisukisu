@@ -1,0 +1,41 @@
+.preloader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  inline-size: 100%;
+  block-size: 100%;
+
+  gap: 1rem;
+
+  background-color: #000;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.0875) 0%,
+    rgba(255, 255, 255, 0) 50%,
+    rgba(255, 255, 255, 0.0875) 100%
+  );
+}
+
+.loader {
+  display: flex;
+
+  inline-size: 2.5rem;
+  block-size: 2.5rem;
+
+  border-radius: var(--pk-ui-misc-radius-rounded);
+  border-top: 3px solid var(--pk-ui-colors-primary);
+  border-right: 3px solid transparent;
+
+  animation: rotation 750ms linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

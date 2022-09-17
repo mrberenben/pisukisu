@@ -1,0 +1,43 @@
+:root {
+  /* colors */
+  --pk-ui-colors-primary: #e1499f;
+  --pk-ui-colors-primary-hover: rgba(225, 73, 159, 0.884);
+  --pk-ui-colors-primary-active: #be4487;
+
+  --pk-ui-colors-dark-default: #000;
+  --pk-ui-colors-dark-100: #0d0e0f;
+  --pk-ui-colors-dark-200: #17181a;
+  --pk-ui-colors-dark-300: #222427;
+  --pk-ui-colors-dark-400: #323438;
+  --pk-ui-colors-dark-500: #404145;
+  --pk-ui-colors-dark-600: #4a4b4c;
+  --pk-ui-colors-dark-700: #57585a;
+  --pk-ui-colors-dark-800: #66686a;
+  --pk-ui-colors-dark-900: #737579;
+
+  --pk-ui-colors-light-default: #fffffe;
+  --pk-ui-colors-light-100: #f4f6f9;
+  --pk-ui-colors-light-200: #e0e1e3;
+  --pk-ui-colors-light-300: #d6d8da;
+  --pk-ui-colors-light-400: #c2c4c8;
+  --pk-ui-colors-light-500: #b0b1b4;
+  --pk-ui-colors-light-600: #a1a3a5;
+  --pk-ui-colors-light-700: #909294;
+  --pk-ui-colors-light-800: #838484;
+  --pk-ui-colors-light-900: #78797a;
+
+  /* typography */
+
+  /* utils */
+  --pk-ui-utils-header-height: 72px;
+
+  /* misc */
+  --pk-ui-misc-radius-xs: 3px;
+  --pk-ui-misc-radius-s: 6px;
+  --pk-ui-misc-radius-m: 9px;
+  --pk-ui-misc-radius-l: 12px;
+  --pk-ui-misc-radius-xl: 15px;
+  --pk-ui-misc-radius-xxl: 25px;
+  --pk-ui-misc-radius-rounded: 100%;
+  /* media */
+}
