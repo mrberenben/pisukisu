@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useCallback } from "react";
+import React, { useEffect, useRef, useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "static/styles/components/pages/watch/Player.module.css";
 
@@ -15,20 +15,15 @@ import { usePlayerDispatch, usePlayerState } from "context/PlayerContext";
 // utils
 import { formatDuration } from "utils";
 import {
-  ArrowLeftIcon,
-  BookActiveIcon,
-  BookIcon,
-  FastForwardIcon,
-  MaximizeIcon,
-  MinimizeIcon,
-  PauseIcon,
-  PlayIcon,
   RotateCCWIcon,
   RotateCWIcon,
   Volume1Icon,
   Volume2Icon,
   VolumeXIcon
 } from "utils/config/icons.config";
+
+import { BiArrowBack, BiArrowToRight, BiPlay, BiPause, BiMessageDetail } from "react-icons/bi";
+import { RiFullscreenLine, RiFullscreenExitLine } from "react-icons/ri";
 
 // hooks
 import useEventListener from "utils/hooks/useEventListener";
@@ -44,7 +39,10 @@ const Player = ({ episode }: PlayerProps) => {
   const Video = useRef<HTMLVideoElement>(null);
   const PlayerContainer = useRef<HTMLDivElement>(null);
   const Timeline = useRef<HTMLDivElement>(null);
+  const VolumeScrubber = useRef<HTMLInputElement>(null);
   const Document = useRef<Document>(document);
+  const [interval, setInterval] = useState<ReturnType<typeof setTimeout> | null>(null);
+  const [isIdling, setIsIdling] = useState<boolean>(false);
   let scrubbing = false,
     paused: boolean | null = null;
 
@@ -104,7 +102,13 @@ const Player = ({ episode }: PlayerProps) => {
   };
 
   const onVolumeChange = () => {
-    if (Video.current) {
+    if (Video.current && VolumeScrubber.current) {
+      VolumeScrubber.current.value = `${Video.current.volume}`;
+
+      if (Video.current.muted) {
+        VolumeScrubber.current.value = "0";
+      }
+
       dispatch({ type: AppActions.SET_VOLUME, payload: Video.current.volume });
       dispatch({
         type: AppActions.TOGGLE_MUTE,
@@ -126,6 +130,27 @@ const Player = ({ episode }: PlayerProps) => {
     }
   };
 
+  // hande mouse idling
+  const handleMouseIdle = () => {
+    if (interval) {
+      clearTimeout(interval);
+    }
+
+    setInterval(
+      setTimeout(() => {
+        if (!isIdling) {
+          setIsIdling(true);
+          dispatch({ type: AppActions.SHOW_PLAYER_VIEW, payload: false });
+        }
+      }, 2000)
+    );
+
+    if (isIdling) {
+      setIsIdling(false);
+      dispatch({ type: AppActions.SHOW_PLAYER_VIEW, payload: true });
+    }
+  };
+
   // setup listeners (video)
   useEventListener("loadeddata", onMetadataLoaded, Video);
   useEventListener("playing", onPlaying, Video);
@@ -139,6 +164,9 @@ const Player = ({ episode }: PlayerProps) => {
   useEventListener("mousedown", toggleScrubbing, Timeline);
   useEventListener("mouseup", e => scrubbing && toggleScrubbing(e), Document);
   useEventListener("mousemove", e => scrubbing && handleTimelineUpdate(e), Document);
+
+  // setup listener (mouse idle)
+  useEventListener("mousemove", handleMouseIdle, Document);
 
   // handle timeupdate
   useEffect(() => {
@@ -184,8 +212,14 @@ const Player = ({ episode }: PlayerProps) => {
 
   // toggle mute
   const toggleMute = useCallback(() => {
-    if (Video.current) {
+    if (Video.current && VolumeScrubber.current) {
       Video.current.muted = !Video.current.muted;
+
+      if (Video.current.muted) {
+        VolumeScrubber.current.style.backgroundSize = "0% 100%";
+      } else {
+        VolumeScrubber.current.style.backgroundSize = `${player.volume * 100}% 100%`;
+      }
     }
   }, [Video.current?.muted]);
 
@@ -195,11 +229,11 @@ const Player = ({ episode }: PlayerProps) => {
         <source src={episode.source} type="video/mp4" />
       </video>
 
-      <div className={styles.player_view}>
+      <div className={`${styles.player_view} ${!player.player_view ? styles.inactive : undefined}`}>
         <div className={styles.player}>
           <div className={styles.player_main} onClick={handlePlayPause}>
             <ControlButton title="Go back" onClick={() => navigate(-1)}>
-              <ArrowLeftIcon />
+              <BiArrowBack />
             </ControlButton>
           </div>
           <div className={styles.player_controls}>
@@ -218,7 +252,7 @@ const Player = ({ episode }: PlayerProps) => {
               <div className={styles.controls_left}>
                 {/* toggle play/pause */}
                 <ControlButton onClick={handlePlayPause} title="Toggle play/pause">
-                  {player.playing ? <PauseIcon /> : <PlayIcon />}
+                  {player.playing ? <BiPause /> : <BiPlay />}
                 </ControlButton>
 
                 {/* rewind 10 seconds */}
@@ -254,6 +288,7 @@ const Player = ({ episode }: PlayerProps) => {
 
                   <div className={styles.volume_scrubber}>
                     <input
+                      ref={VolumeScrubber}
                       type="range"
                       min={0}
                       max={1}
@@ -267,17 +302,17 @@ const Player = ({ episode }: PlayerProps) => {
               <div className={styles.controls_right}>
                 {/* next episode */}
                 <ControlButton title="Next episode">
-                  <FastForwardIcon />
+                  <BiArrowToRight />
                 </ControlButton>
 
                 {/* toggle captions */}
                 <ControlButton title="Toggle captions">
-                  {player.captions ? <BookActiveIcon /> : <BookIcon />}
+                  {player.captions ? <BiMessageDetail /> : <BiMessageDetail />}
                 </ControlButton>
 
                 {/* toggle fullscreen */}
                 <ControlButton title="Toggle fullscreen" onClick={handleToggleFullscreen}>
-                  {player.fullscreen ? <MinimizeIcon /> : <MaximizeIcon />}
+                  {player.fullscreen ? <RiFullscreenExitLine /> : <RiFullscreenLine />}
                 </ControlButton>
               </div>
             </div>
